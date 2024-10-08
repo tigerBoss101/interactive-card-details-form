@@ -5,7 +5,13 @@ export default function Form() {
         <form action="#">
             <p>
                 <label htmlFor="name">CARDHOLDER NAME</label>
-                <input type="text" id="name" name="name" required/>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="e.g. Jane Appleseed"
+                />
             </p>
             <p>
                 <label htmlFor="card-number">CARD NUMBER</label>
@@ -17,6 +23,7 @@ export default function Form() {
                     pattern="\d*"
                     maxLength="16"
                     required
+                    placeholder="e.g. 1234 5678 9123 0000"
                 />
             </p>
             <p>
@@ -30,6 +37,7 @@ export default function Form() {
                         pattern="\d*"
                         maxLength="2"
                         required
+                        placeholder="MM"
                     />
                     <label htmlFor="expire-year" className="hidden">EXP. YEAR</label>
                     <input
@@ -40,6 +48,7 @@ export default function Form() {
                         pattern="\d*"
                         maxLength="2"
                         required
+                        placeholder="YY"
                     />
                 </span>
             </p>
@@ -53,6 +62,7 @@ export default function Form() {
                     pattern="\d*"
                     maxLength="3"
                     required
+                    placeholder="e.g. 123"
                 />
             </p>
             <input type="submit" id="confirm-button" value="Confirm" />
