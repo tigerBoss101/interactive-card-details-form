@@ -20,7 +20,7 @@ form input {
     min-width: 0;
 }
 
-form input:focus {
+form input:not([type=submit]):focus {
     border: 1px solid transparent;
     outline: transparent;
     background: linear-gradient(#fff, #fff) padding-box,
