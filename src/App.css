@@ -29,7 +29,3 @@
   grid-template-columns: auto 1fr;
   place-items: center;
 }
-
-.App > img {
-  height: 100vh;
-}

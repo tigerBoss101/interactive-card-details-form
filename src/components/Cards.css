@@ -1,0 +1,33 @@
+.cards {
+    height: 100vh;
+    position: relative;
+    margin-right: 7rem;
+}
+
+.cards > img {
+    height: 100%;
+    display: block;
+}
+
+.card {
+    position: absolute;
+    right: 0;
+}
+
+.card > img {
+    display: block;
+    /* transform: scale(0.8); */
+    height: 23.25vh;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px 5px rgba(0, 0, 0, 0.075);
+}
+
+#front {
+    transform: translate(30%, 0);
+    top: 24.5%;
+}
+
+#back {
+    transform: translate(50%, 0);
+    bottom: 24.5%;
+}

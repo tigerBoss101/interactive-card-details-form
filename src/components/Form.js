@@ -20,10 +20,11 @@ export default function Form() {
                     inputMode="numeric"
                     id="card-number"
                     name="card-number"
-                    pattern="\d*"
-                    maxLength="16"
+                    pattern="\d{4}\s\d{4}\s\d{4}\s\d{4}"
+                    maxLength="19"
                     required
                     placeholder="e.g. 1234 5678 9123 0000"
+                    autoComplete="cc-number"
                 />
             </p>
             <p>
@@ -34,10 +35,11 @@ export default function Form() {
                         inputMode="numeric"
                         id="expire-month"
                         name="expire-month"
-                        pattern="\d*"
+                        pattern="\d{2}"
                         maxLength="2"
                         required
                         placeholder="MM"
+                        autoComplete="cc-exp-month"
                     />
                     <label htmlFor="expire-year" className="hidden">EXP. YEAR</label>
                     <input
@@ -45,10 +47,11 @@ export default function Form() {
                         inputMode="numeric"
                         id="expire-year"
                         name="expire-year"
-                        pattern="\d*"
+                        pattern="\d{2}"
                         maxLength="2"
                         required
                         placeholder="YY"
+                        autoComplete="cc-exp-year"
                     />
                 </span>
             </p>
@@ -59,10 +62,11 @@ export default function Form() {
                     inputMode="numeric"
                     id="cvc"
                     name="cvc"
-                    pattern="\d*"
+                    pattern="\d{3}"
                     maxLength="3"
                     required
                     placeholder="e.g. 123"
+                    autoComplete="cc-csc"
                 />
             </p>
             <input type="submit" id="confirm-button" value="Confirm" />

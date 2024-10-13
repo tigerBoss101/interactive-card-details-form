@@ -1,11 +1,11 @@
 import './App.css';
-import background from './assets/images/bg-main-desktop.png';
+import Cards from './components/Cards'
 import Form from './components/Form'
 
 function App() {
   return (
-    <div className="App">    
-      <img src={background} alt="background" />
+    <div className="App">
+      <Cards />
       <Form />
     </div>
   );
