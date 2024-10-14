@@ -1,8 +1,19 @@
 import "./Form.css";
+import { useForm } from 'react-hook-form';
 
-export default function Form() {
+export default function Form({ setData }) {
+    const { register } = useForm();
+    const onChange = event => {
+        setData(prev => {
+            return {
+                ...prev,
+                [event.target.name]: event.target.value
+            };
+        });
+    }
+
     return (
-        <form action="#">
+        <form>
             <p>
                 <label htmlFor="name">CARDHOLDER NAME</label>
                 <input
@@ -11,6 +22,8 @@ export default function Form() {
                     name="name"
                     required
                     placeholder="e.g. Jane Appleseed"
+                    {...register("name")}
+                    onChange={onChange}
                 />
             </p>
             <p>
@@ -25,33 +38,39 @@ export default function Form() {
                     required
                     placeholder="e.g. 1234 5678 9123 0000"
                     autoComplete="cc-number"
+                    {...register("cardNumber")}
+                    onChange={onChange}
                 />
             </p>
             <p>
-                <label htmlFor="expire-month">EXP. DATE (MM/YY)</label>
+                <label htmlFor="exp-month">EXP. DATE (MM/YY)</label>
                 <span className="inputs">
                     <input
                         type="text"
                         inputMode="numeric"
-                        id="expire-month"
-                        name="expire-month"
+                        id="exp-month"
+                        name="exp-month"
                         pattern="\d{2}"
                         maxLength="2"
                         required
                         placeholder="MM"
                         autoComplete="cc-exp-month"
+                        {...register("expMonth")}
+                        onChange={onChange}
                     />
-                    <label htmlFor="expire-year" className="hidden">EXP. YEAR</label>
+                    <label htmlFor="exp-year" className="hidden">EXP. YEAR</label>
                     <input
                         type="text" 
                         inputMode="numeric"
-                        id="expire-year"
-                        name="expire-year"
+                        id="exp-year"
+                        name="exp-year"
                         pattern="\d{2}"
                         maxLength="2"
                         required
                         placeholder="YY"
                         autoComplete="cc-exp-year"
+                        {...register("expYear")}
+                        onChange={onChange}
                     />
                 </span>
             </p>
@@ -67,6 +86,8 @@ export default function Form() {
                     required
                     placeholder="e.g. 123"
                     autoComplete="cc-csc"
+                    {...register("cvc")}
+                    onChange={onChange}
                 />
             </p>
             <input type="submit" id="confirm-button" value="Confirm" />
