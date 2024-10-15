@@ -22,11 +22,11 @@ export default function Cards({ data }) {
             <div className="card" id="front">
                 <img src={logo} alt="Credit card logo" id="logo" />
                 <p id="card-number">{newData.cardNumber}</p>
-                <p id="full-name" className="small" >{newData.name.toUpperCase()}</p>
-                <p id="exp-date" className="small" >{newData.expMonth}/{newData.expYear}</p>
+                <p id="full-name" className="small">{newData.name.toUpperCase()}</p>
+                <p id="exp-date" className="small">{newData.expMonth}/{newData.expYear}</p>
             </div>
             <div className="card" id="back">
-                <p id="cvc" className="small" >{newData.cvc}</p>
+                <p id="cvc" className="small">{newData.cvc}</p>
             </div>
         </div>
     )
