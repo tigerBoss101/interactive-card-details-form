@@ -2,18 +2,27 @@ import "./Form.css";
 import { useForm } from 'react-hook-form';
 
 export default function Form({ setData }) {
-    const { register } = useForm();
+    const { register, handleSubmit } = useForm();
     const onChange = event => {
+        let name = event.target.name;
+        let value = event.target.value;
+        if (name === "cardNumber") {
+            value = (value.replace(' ', '').match(/\d{1,4}/g) || []).join(' ');
+            event.target.value = value;
+        }
         setData(prev => {
             return {
                 ...prev,
-                [event.target.name]: event.target.value
+                [name]: value
             };
         });
     }
+    const onSubmit = data => {
+        console.table(data);
+    }
 
     return (
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <p>
                 <label htmlFor="name">CARDHOLDER NAME</label>
                 <input
