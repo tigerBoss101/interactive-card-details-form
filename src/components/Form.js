@@ -1,7 +1,7 @@
 import "./Form.css";
 import { useForm } from 'react-hook-form';
 
-export default function Form({ setData }) {
+export default function Form({ setData, setComplete }) {
     const { register, handleSubmit } = useForm();
     const onChange = event => {
         let name = event.target.name;
@@ -17,8 +17,8 @@ export default function Form({ setData }) {
             };
         });
     }
-    const onSubmit = data => {
-        console.table(data);
+    const onSubmit = _ => {
+        setComplete(true);
     }
 
     return (

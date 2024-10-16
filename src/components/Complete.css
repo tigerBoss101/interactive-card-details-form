@@ -1,0 +1,41 @@
+#complete {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 40%;
+}
+
+#complete > img {
+    width: 5rem;
+    height: 5rem;
+}
+
+#message > p:first-child {
+    font-size: 1.25rem;
+    color: var(--dark-violet);
+    letter-spacing: 0.1rem;
+}
+
+#message > p:last-child {
+    font-size: 0.8rem;
+    color: var(--dark-gray-violet);
+}
+
+#message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+#complete > button {
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--dark-violet);
+    color: white;
+    font-weight: 400;
+    font-size: 0.8rem;
+    height: 2.5rem;
+}
