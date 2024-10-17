@@ -27,7 +27,6 @@ export default function Form({ setData, setComplete }) {
                 <label htmlFor="name">CARDHOLDER NAME</label>
                 <input
                     type="text"
-                    id="name"
                     name="name"
                     required
                     placeholder="e.g. Jane Appleseed"
@@ -40,7 +39,6 @@ export default function Form({ setData, setComplete }) {
                 <input
                     type="text"
                     inputMode="numeric"
-                    id="card-number"
                     name="card-number"
                     pattern="\d{4}\s\d{4}\s\d{4}\s\d{4}"
                     maxLength="19"
@@ -57,7 +55,6 @@ export default function Form({ setData, setComplete }) {
                     <input
                         type="text"
                         inputMode="numeric"
-                        id="exp-month"
                         name="exp-month"
                         pattern="\d{2}"
                         maxLength="2"
@@ -71,7 +68,6 @@ export default function Form({ setData, setComplete }) {
                     <input
                         type="text" 
                         inputMode="numeric"
-                        id="exp-year"
                         name="exp-year"
                         pattern="\d{2}"
                         maxLength="2"
@@ -88,7 +84,6 @@ export default function Form({ setData, setComplete }) {
                 <input
                     type="text"
                     inputMode="numeric"
-                    id="cvc"
                     name="cvc"
                     pattern="\d{3}"
                     maxLength="3"
