@@ -44,7 +44,7 @@ export default function Form({ setData, setComplete }) {
                 />
             </p>
             <p>
-                <label htmlFor="card-number">CARD NUMBER</label>
+                <label htmlFor="cardNumber">CARD NUMBER</label>
                 <Input
                     isNumeric
                     name="cardNumber"
@@ -57,7 +57,7 @@ export default function Form({ setData, setComplete }) {
                 />
             </p>
             <p>
-                <label htmlFor="exp-month">EXP. DATE (MM/YY)</label>
+                <label htmlFor="expMonth">EXP. DATE (MM/YY)</label>
                 <span className="inputs">
                     <Input
                         isNumeric
@@ -69,7 +69,7 @@ export default function Form({ setData, setComplete }) {
                         onChange={onChange}
                         register={register}
                     />
-                    <label htmlFor="exp-year" className="hidden">EXP. YEAR</label>
+                    <label htmlFor="expYear" className="hidden">EXP. YEAR</label>
                     <Input
                         isNumeric
                         name="expYear"
