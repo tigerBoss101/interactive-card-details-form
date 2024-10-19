@@ -1,0 +1,18 @@
+input._input {
+    border: 1px solid var(--light-gray-violet);
+    border-radius: 4px;
+    padding: 0.5rem 0.65rem;
+    transition: 0.2s;
+    min-width: 0;
+}
+
+input._input:focus {
+    border: 1px solid transparent;
+    outline: transparent;
+    background: linear-gradient(#fff, #fff) padding-box,
+                linear-gradient(to right, var(--light-gradient), var(--dark-gradient)) border-box;
+}
+
+input._input::placeholder {
+    color: var(--light-gray-violet);
+}
