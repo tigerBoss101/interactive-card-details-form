@@ -1,14 +1,14 @@
 import "./Form.css";
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Input from "./Input";
 
 export default function Form({ setData, setComplete }) {
-    const { register, handleSubmit, formState } = useForm();
+    const { register, handleSubmit, formState: {errors} } = useForm();
 
-    useEffect(() => {
-        console.log(formState.errors);
-    }, [formState]);
+    // useEffect(() => {
+    //     console.log(formState.errors);
+    // }, [formState]);
 
     const onChange = event => {
         let name = event.target.name;
@@ -30,6 +30,7 @@ export default function Form({ setData, setComplete }) {
     }
     const onSubmit = _ => {
         setComplete(true);
+        console.log(errors);
     }
 
     return (
@@ -38,16 +39,22 @@ export default function Form({ setData, setComplete }) {
                 <label htmlFor="name">CARDHOLDER NAME</label>
                 <Input
                     name="name"
+					invalid={errors.name}
                     placeholder="e.g. Jane Appleseed"
                     onChange={onChange}
                     register={register}
                 />
+                {
+                    errors.name?.type === "required" &&
+                    <span className="error">Can't be blank</span>
+                }
             </p>
             <p>
                 <label htmlFor="cardNumber">CARD NUMBER</label>
                 <Input
                     isNumeric
                     name="cardNumber"
+					invalid={errors.cardNumber}
                     pattern={/^\d{4}\s\d{4}\s\d{4}\s\d{4}$/}
                     maxLength={19}
                     placeholder="e.g. 1234 5678 9123 0000"
@@ -55,6 +62,14 @@ export default function Form({ setData, setComplete }) {
                     onChange={onChange}
                     register={register}
                 />
+                <span className="error">
+                    {
+                        errors.cardNumber?.type === "required" ?
+                        "Can't be blank"
+                        : errors.cardNumber?.type === "pattern" &&
+                        "Must be 16 digits"
+                    }
+                </span>
             </p>
             <p>
                 <label htmlFor="expMonth">EXP. DATE (MM/YY)</label>
@@ -62,6 +77,7 @@ export default function Form({ setData, setComplete }) {
                     <Input
                         isNumeric
                         name="expMonth"
+					    invalid={errors.expMonth}
                         pattern={/^(0[1-9]|1[0-2])$/}
                         maxLength={2}
                         placeholder="MM"
@@ -73,6 +89,7 @@ export default function Form({ setData, setComplete }) {
                     <Input
                         isNumeric
                         name="expYear"
+					    invalid={errors.expYear}
                         pattern={/^\d{2}$/}
                         maxLength={2}
                         placeholder="YY"
@@ -81,12 +98,26 @@ export default function Form({ setData, setComplete }) {
                         register={register}
                     />
                 </span>
+                <span className="error">
+                    {
+                        (
+                            errors.expMonth?.type === "required"
+                            || errors.expYear?.type === "required"
+                        ) ?
+                        "Can't be blank"
+                        : (errors.expMonth?.type === "pattern"
+                           || errors.expYear?.type === "pattern"
+                        ) &&
+                        "Must be 2 digits, valid month"
+                    }
+                </span>
             </p>
             <p>
                 <label htmlFor="cvc">CVC</label>
                 <Input
                     isNumeric
                     name="cvc"
+					invalid={errors.cvc}
                     pattern={/^\d{3}$/}
                     maxLength={3}
                     placeholder="e.g. 123"
@@ -94,6 +125,14 @@ export default function Form({ setData, setComplete }) {
                     onChange={onChange}
                     register={register}
                 />
+                <span className="error">
+                    {
+                        errors.cvc?.type === "required" ?
+                        "Can't be blank"
+                        : errors.cvc?.type === "pattern" &&
+                        "Must be 3 digits"
+                    }
+                </span>
             </p>
             <input type="submit" id="confirm-button" value="Confirm" />
         </form>

@@ -7,9 +7,11 @@ export default function Input({
     maxLength,
     placeholder,
     autoComplete,
+    invalid,
     onChange,
-    register
+    register,
 }) {
+    invalid = (!!invalid).toString()
     return (
         <input
             className="_input"
@@ -18,6 +20,7 @@ export default function Input({
             maxLength={maxLength}
             placeholder={placeholder}
             autoComplete={autoComplete}
+            aria-invalid={invalid}
             {...register(name, {
                 onChange: onChange,
                 required: true,

@@ -6,6 +6,13 @@ input._input {
     min-width: 0;
 }
 
+input._input[aria-invalid="true"] {
+    border: 1px solid transparent;
+    outline: transparent;
+    background: linear-gradient(#fff, #fff) padding-box,
+                linear-gradient(red, red) border-box;
+}
+
 input._input:focus {
     border: 1px solid transparent;
     outline: transparent;
@@ -16,3 +23,4 @@ input._input:focus {
 input._input::placeholder {
     color: var(--light-gray-violet);
 }
+
